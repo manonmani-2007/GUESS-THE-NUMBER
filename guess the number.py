@@ -1,6 +1,6 @@
 print("hello! let's play a game:")
 print("GUESS THE NUMBER!")
-print("IT'S A NUMBER BETWEEN 1 TO 100! both inclusive")
+print("IT'S A NUMBER BETWEEN 1 AND 100! both inclusive")
 print("HINT:1 IT IS THE SMALLEST NUMBER WITH SIX DIVISORS!!")
 print("HINT:2 THIS NUMBER HAS RELIGIOUS SIGNIFICANCE!")
 count=1
@@ -23,3 +23,4 @@ while True:
 
     
     
+
