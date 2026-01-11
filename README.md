@@ -1,12 +1,27 @@
- Guess the Number:
+# 🎯 Guess The Number Game
 
-A simple Python game where the computer randomly selects a number, and the player tries to guess 
+An interactive **Guess The Number** web game built using **Python and Streamlit**.
 
-How to Play:
+## 🚀 Features
+- 🎯 Random number guessing game
+- 🎚️ Difficulty levels (Easy / Medium / Hard)
+- 🔁 Restart game anytime
+- 🧮 Limited attempts with progress bar
+- 🎉 Animations and clean UI
+- 🌍 Deployed online using Streamlit Cloud
 
-1. Run the Python script `guess_the_number.py`.
-2. The computer will choose a random number between 1 and 100 both inclusive.
-3. Enter your guess.
-4. The computer will tell you if your guess is "too high", "too low", or "correct".
-5. Keep guessing until you find the correct number!
-6. You are also provided with some interesting facts about the number!!
+## 🕹️ How to Play
+1. Choose a difficulty level from the sidebar
+2. Enter your guess
+3. Click **Guess**
+4. Follow the hints: *Too high* or *Too low*
+5. Win before attempts run out!
+
+## 🛠️ Tech Stack
+- Python
+- Streamlit
+
+## ▶️ Run Locally
+```bash
+pip install streamlit
+streamlit run guess_game_ui.py
