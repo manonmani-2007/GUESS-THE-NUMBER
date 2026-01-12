@@ -58,7 +58,7 @@ with c2:
             st.warning("🔼 Too high")
             st.session_state.score-=10
         else:
-            st.success(f"🎉 Correct! Final Score:{st.session_state}")
+            st.success(f"🎉 Correct! Final Score:{st.session_state.score}")
             st.write(f"You guessed it in {st.session_state.attempts} attempts")
             st.balloons()
             st.session_state.game_over=True
