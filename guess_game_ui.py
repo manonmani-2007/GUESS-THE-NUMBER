@@ -21,7 +21,7 @@ if "secret" not in st.session_state:
     st.session_state.max_attempts=value
     st.session_state.game_over=False
 if st.session_state.max_attempts!=value:
-     st.session_state.max_attempts=value
+     st.session_state.max_attempts=max(0,value)
      st.session_state.secret=random.randint(1,max_range)
      st.session_state.game_over=False
 if "score" not in st.session_state:
@@ -37,7 +37,7 @@ if st.session_state.last_difficulty!=difficulty:
     st.session_state.attempts=0
     st.session_state.score=100
     st.session_state.game_over=False
-    st.session_state.max_attempts=value
+    st.session_state.max_attempts=max(0,value)
     st.session_state.last_difficulty=difficulty
 st.sidebar.header("🎮Game Info")
 st.sidebar.write("Guess the Secret Number👀")
@@ -70,7 +70,7 @@ with c2:
 left=st.session_state.max_attempts-st.session_state.attempts
 st.info(f"⌛Attempts Left:{left}")
 st.info(f"⭐Score:{st.session_state.score}")
-if st.session_state.attempts>st.session_state.max_attempts and not st.session_state.game_over:
+if st.session_state.attempts>=st.session_state.max_attempts and not st.session_state.game_over:
     st.error("😓Maximum Attempts Reached")
     st.write(f"The secret number was {st.session_state.secret}")
     st.session_state.game_over=True
