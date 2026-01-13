@@ -82,6 +82,7 @@ if st.button("🔄️ Restart Game"):
     st.session_state.attempts=0
     st.session_state.score=100
     st.session_state.game_over=False
+    del st.session_state.secret
 
     del st.session_state.guess_input
     st.rerun()
