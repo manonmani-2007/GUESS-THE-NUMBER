@@ -32,6 +32,8 @@ if "game_over" not in st.session_state:
     st.session_state.game_over=False
 if "last_difficulty" not in st.session_state:
     st.session_state.last_difficulty=difficulty
+if "guess_input" not in st.session_state:
+    st.session_state.guess_input=1
 if st.session_state.last_difficulty!=difficulty:
     st.session_state.secret=random.randint(1,max_range)
     st.session_state.attempts=0
@@ -51,7 +53,7 @@ with c2:
     "Enter your guess:",
     min_value=1,
     max_value=max_range,
-    step=1
+    step=1,key="guess_input"
 )
     if st.button("🎲 Guess") and not st.session_state.game_over:
             st.session_state.attempts+=1
@@ -80,6 +82,7 @@ if st.button("🔄️ Restart Game"):
     st.session_state.attempts=0
     st.session_state.score=100
     st.session_state.game_over=False
-    st.success("New Game Restarted!🎮")
+
+    del st.session_state.guess_input
     st.rerun()
     
