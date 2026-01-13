@@ -34,6 +34,7 @@ if "last_difficulty" not in st.session_state:
     st.session_state.last_difficulty=difficulty
 if "guess_input" not in st.session_state:
     st.session_state.guess_input=1
+
 if st.session_state.last_difficulty!=difficulty:
     st.session_state.secret=random.randint(1,max_range)
     st.session_state.attempts=0
@@ -44,7 +45,7 @@ if st.session_state.last_difficulty!=difficulty:
 st.sidebar.header("🎮Game Info")
 st.sidebar.write("Guess the Secret Number👀")
 st.sidebar.write(f"Range 1-{max_range}")
-st.sidebar.write(f"MAximum Attempts:{st.session_state.max_attempts}")
+st.sidebar.write(f"Maximum Attempts:{st.session_state.max_attempts}")
 st.write(f"I have chosen a number between 1 and {max_range}")
 c1,c2,c3=st.columns([1,2,1])
 with c2:
@@ -58,10 +59,10 @@ with c2:
     if st.button("🎲 Guess") and not st.session_state.game_over:
             st.session_state.attempts+=1
             if guess < st.session_state.secret:
-                st.warning("🔽 Too low")
+                st.warning("🔽 Too Low")
                 st.session_state.score=max(0,st.session_state.score-5)
             elif guess > st.session_state.secret:
-                st.warning("🔼 Too high")
+                st.warning("🔼 Too High")
                 st.session_state.score=max(0,st.session_state.score-5)
             else:
                 st.success(f"🎉 Correct! Final Score:{st.session_state.score}")
@@ -70,15 +71,16 @@ with c2:
                 st.session_state.game_over=True
              
 left=st.session_state.max_attempts-st.session_state.attempts
-st.info(f"⌛Attempts Left:{left}")
-st.info(f"⭐Score:{st.session_state.score}")
+st.info(f"⌛Attempts Left: {left}")
+st.info(f"⭐Score: {st.session_state.score}")
 if st.session_state.attempts>=st.session_state.max_attempts and not st.session_state.game_over:
     st.error("😓Maximum Attempts Reached")
     st.write(f"The secret number was {st.session_state.secret}")
     st.session_state.game_over=True
 st.divider()
 if st.button("🔄️ Restart Game"):
-    st.session_state_secret=random.randint(1,max_range)
+
+    st.session_state.secret=random.randint(1,max_range)
     st.session_state.attempts=0
     st.session_state.score=100
     st.session_state.game_over=False
